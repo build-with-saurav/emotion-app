@@ -195,7 +195,7 @@ This project was developed as part of my undergraduate final-year research work 
 B.Tech CSE | National Institute of Technology Calicut
 AI/ML Engineer | Speech AI | Deep Learning
 
-GitHub: https://github.com/SauravB210489CS
+GitHub: https://github.com/build-with-saurav
 
 ---
 
