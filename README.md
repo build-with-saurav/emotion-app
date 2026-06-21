@@ -8,13 +8,13 @@
 ![CVIP 2025](https://img.shields.io/badge/Research-CVIP2025-purple)
 ![XAI](https://img.shields.io/badge/Explainability-LMAC-success)
 
-A real-time **Speech Emotion Recognition (SER)** system that analyzes human speech and predicts emotional states using deep learning, while also providing interpretable explanations of model decisions.
+A real-time **Speech Emotion Recognition (SER)** system that analyzes human speech and predicts emotional states using deep learning while also providing interpretable explanations of model decisions.
 
 This project combines **speech processing**, **deep learning**, and **Explainable AI (XAI)** to understand not just *what emotion is being spoken*, but also *why the model predicted it*.
 
-The system extracts speech features like **MFCCs, Chroma, Mel Spectrograms, Spectral Contrast, Tonnetz, Pitch, and Energy**, and uses a **CNN-GRU-Attention** based architecture for emotion classification.
+The system extracts speech features such as **MFCCs, Chroma, Mel Spectrograms, Spectral Contrast, Tonnetz, Pitch, and Energy**, and uses a **CNN-GRU-Attention** architecture for emotion classification.
 
-The project also integrates **Local Model-Agnostic Classification (LMAC)** for post-hoc interpretability, making the predictions more transparent and trustworthy.
+To improve transparency, the system integrates **Local Model-Agnostic Classification (LMAC)** for post-hoc interpretability.
 
 This work was developed as my final-year undergraduate research project at **National Institute of Technology Calicut** and was accepted at **CVIP 2025 (IIT Ropar)**.
 
@@ -33,7 +33,7 @@ This project aims to bridge that gap by making speech systems:
 * More trustworthy
 * More suitable for real-world human-centric AI applications
 
-Applications include:
+### Applications
 
 * Virtual Assistants
 * Mental Health Monitoring
@@ -46,15 +46,15 @@ Applications include:
 
 ## ✨ Features
 
-✔️ Real-time Speech Emotion Recognition
-✔️ CNN-GRU-Attention based architecture
-✔️ Advanced speech feature extraction
-✔️ Explainable AI using LMAC
-✔️ Interactive Streamlit web application
-✔️ Upload custom audio files
-✔️ Waveform visualization
-✔️ Spectrogram visualization
-✔️ Emotion prediction with interpretability
+* Real-time Speech Emotion Recognition
+* CNN-GRU-Attention based architecture
+* Advanced speech feature extraction
+* Explainable AI using LMAC
+* Interactive Streamlit web application
+* Upload custom audio files
+* Waveform visualization
+* Spectrogram visualization
+* Emotion prediction with interpretability
 
 ---
 
@@ -102,6 +102,42 @@ The model classifies speech into:
 
 ---
 
+## 📁 Dataset Information
+
+This project follows a **two-stage hybrid dataset approach**.
+
+### 1. BhavanaVani (Custom Dataset)
+
+BhavanaVani is a custom Hindi emotional speech dataset initiated during this project.
+
+We initially collected emotion-labeled speech samples from students at **National Institute of Technology Calicut**.
+
+Challenges faced:
+
+* Limited participation
+* Class imbalance
+* Low sample count
+* Difficulty in collecting natural emotional speech
+
+This dataset helped establish the initial training pipeline.
+
+---
+
+### 2. Kaggle Hindi SER Dataset
+
+To overcome data limitations, we incorporated a larger Hindi Speech Emotion Recognition dataset from Kaggle.
+
+This helped improve:
+
+* Dataset diversity
+* Better class balance
+* Improved generalization
+* Stronger model robustness
+
+Final hybrid dataset size: **3200+ audio samples**
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Programming & Frameworks
@@ -125,7 +161,7 @@ The model classifies speech into:
 ### Deep Learning
 
 * CNN
-* Bi-directional GRU
+* Bi-Directional GRU
 * Attention Mechanism
 
 ### Explainability
@@ -138,13 +174,13 @@ The model classifies speech into:
 
 ```bash
 emotion-app/
-│── model/                    # Trained model files
-│── screenshots/              # Visual outputs
-│── dataset/                  # Audio datasets
-│── app.py                    # Streamlit application
-│── train_model.py            # Training pipeline
-│── requirements.txt          # Dependencies
-│── README.md                 # Documentation
+│── model/                     # Trained model files
+│── script/                    # Training and preprocessing scripts
+│── screenshots/               # Visual outputs
+│── README.md                  # Documentation
+│── requirements.txt           # Dependencies
+│── emotions.csv               # Emotion labels
+│── confusion_matrix_eval.png  # BhavanaVani evaluation
 ```
 
 ---
@@ -176,7 +212,7 @@ streamlit run app.py
 
 ### Prediction Output
 
-Shows the predicted emotion from the uploaded speech sample.
+Shows the predicted emotion from uploaded speech.
 
 ![Prediction Output](screenshots/prediction_output.png)
 
@@ -200,13 +236,33 @@ Shows amplitude variation over time.
 
 ## 📊 Model Performance
 
-The model was trained on a combination of a custom dataset (**BhavanaVani**) and a public Hindi SER dataset.
+The model was trained using a **hybrid dataset strategy**.
 
-### Performance Metrics
+### Phase 1 — BhavanaVani (Custom Dataset)
+
+The initial model was trained using the custom BhavanaVani dataset collected from NIT Calicut students.
+
+This phase helped validate:
+
+* Feature extraction pipeline
+* Emotion labeling consistency
+* Initial model architecture
+
+### BhavanaVani Confusion Matrix
+
+![BhavanaVani Confusion Matrix](confusion_matrix_eval.png)
+
+---
+
+### Phase 2 — Kaggle Hindi SER Dataset
+
+To improve robustness and scale, we extended training using a Kaggle Hindi SER dataset.
+
+### Final Performance Metrics
 
 * **Training Accuracy:** 99.71%
 * **Validation Accuracy:** 72.34%
-* **Overall Test Accuracy:** 72.34%
+* **Overall Confusion Matrix Accuracy:** 94.59%
 
 ### Class-wise F1 Scores
 
@@ -235,7 +291,7 @@ To improve transparency, the model uses **LMAC** to identify important speech se
 * **Sparseness:** 61.4%
 * **Complexity Index:** 0.37
 
-These metrics indicate strong faithfulness and high-quality interpretability.
+These metrics demonstrate strong faithfulness and high-quality interpretability.
 
 ---
 
@@ -249,14 +305,17 @@ Accepted at:
 
 **Conference on Computer Vision and Image Processing (CVIP 2025), IIT Ropar**
 
-### Key Contributions:
+### Key Contributions
 
-* Built the **BhavanaVani** custom Hindi speech dataset
-* Developed a CNN-GRU-Attention based SER pipeline
+* Initiated custom Hindi speech dataset collection from NIT Calicut students
+* Designed the speech data collection pipeline
+* Identified dataset limitations and expanded with Kaggle data
+* Built a hybrid dataset for improved generalization
+* Developed CNN-GRU-Attention based SER pipeline
 * Implemented post-hoc explainability using LMAC
 * Evaluated model faithfulness using structural metrics
-* Improved transparency in low-resource speech systems
-* Validated explanations using human and empirical analysis
+* Improved transparency in low-resource Indic speech systems
+* Validated explanations using empirical and human analysis
 
 ---
 
