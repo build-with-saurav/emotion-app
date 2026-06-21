@@ -46,15 +46,17 @@ This project aims to bridge that gap by making speech systems:
 
 ## ✨ Features
 
-* Real-time Speech Emotion Recognition
-* CNN-GRU-Attention based architecture
-* Advanced speech feature extraction
-* Explainable AI using LMAC
-* Interactive Streamlit web application
-* Upload custom audio files
-* Waveform visualization
-* Spectrogram visualization
-* Emotion prediction with interpretability
+- Real-time Speech Emotion Recognition  
+- CNN-GRU-Attention based architecture  
+- Advanced speech feature extraction  
+- Explainable AI using LMAC  
+- Interactive Streamlit web application  
+- Upload custom audio files for prediction  
+- Waveform visualization  
+- Spectrogram visualization  
+- Emotion prediction with interpretability  
+- Hybrid dataset training approach  
+- Post-hoc model explanation support  
 
 ---
 
@@ -104,7 +106,7 @@ The model classifies speech into:
 
 ## 📁 Dataset Information
 
-This project follows a **two-stage hybrid dataset approach**.
+This project follows a **two-stage hybrid dataset approach** for improving Speech Emotion Recognition performance.
 
 ### 1. BhavanaVani (Custom Dataset)
 
@@ -114,25 +116,25 @@ We initially collected emotion-labeled speech samples from students at **Nationa
 
 Challenges faced:
 
-* Limited participation
-* Class imbalance
-* Low sample count
-* Difficulty in collecting natural emotional speech
+- Limited participation  
+- Class imbalance  
+- Low sample count  
+- Difficulty in collecting natural emotional speech  
 
-This dataset helped establish the initial training pipeline.
+This dataset helped establish the initial training pipeline and validate the feature extraction process.
 
 ---
 
 ### 2. Kaggle Hindi SER Dataset
 
-To overcome data limitations, we incorporated a larger Hindi Speech Emotion Recognition dataset from Kaggle.
+To overcome data limitations and improve model generalization, we incorporated a larger Hindi Speech Emotion Recognition dataset from Kaggle.
 
-This helped improve:
+This improved:
 
-* Dataset diversity
-* Better class balance
-* Improved generalization
-* Stronger model robustness
+- Dataset diversity  
+- Better emotion balance  
+- Stronger model robustness  
+- Improved generalization capability  
 
 Final hybrid dataset size: **3200+ audio samples**
 
@@ -172,16 +174,19 @@ Final hybrid dataset size: **3200+ audio samples**
 
 ## 📂 Project Structure
 
-```bash
+   bash
 emotion-app/
-│── model/                     # Trained model files
-│── script/                    # Training and preprocessing scripts
-│── screenshots/               # Visual outputs
-│── README.md                  # Documentation
-│── requirements.txt           # Dependencies
-│── emotions.csv               # Emotion labels
-│── confusion_matrix_eval.png  # BhavanaVani evaluation
-```
+│── model/                         # Saved trained model files
+│── script/                        # Training, preprocessing and evaluation scripts
+│── screenshots/                   # Prediction outputs and visualizations
+│   ├── prediction_output.png
+│   ├── spectrogram.png
+│   ├── waveform.png
+│   ├── kaggle_confusion_matrix.png
+│── README.md                      # Project documentation
+│── requirements.txt               # Required dependencies
+│── emotions.csv                   # Emotion labels dataset
+│── confusion_matrix_eval.png      # BhavanaVani confusion matrix
 
 ---
 
@@ -236,19 +241,22 @@ Shows amplitude variation over time.
 
 ## 📊 Model Performance
 
-The model was trained using a **hybrid dataset strategy**.
+The model was trained using a **two-stage hybrid dataset strategy**.
 
 ### Phase 1 — BhavanaVani (Custom Dataset)
 
-The initial model was trained using the custom BhavanaVani dataset collected from NIT Calicut students.
+The initial model was trained using the custom BhavanaVani dataset collected from students at **National Institute of Technology Calicut**.
 
 This phase helped validate:
 
-* Feature extraction pipeline
-* Emotion labeling consistency
-* Initial model architecture
+- Feature extraction pipeline  
+- Emotion labeling consistency  
+- Initial model architecture  
+- Dataset quality assessment  
 
 ### BhavanaVani Confusion Matrix
+
+The confusion matrix below shows the model’s classification performance on the custom BhavanaVani dataset.
 
 ![BhavanaVani Confusion Matrix](confusion_matrix_eval.png)
 
@@ -256,33 +264,49 @@ This phase helped validate:
 
 ### Phase 2 — Kaggle Hindi SER Dataset
 
-To improve robustness and scale, we extended training using a Kaggle Hindi SER dataset.
+To overcome limitations in dataset size and improve generalization, the model was extended using a publicly available Hindi SER dataset from Kaggle.
 
-### Final Performance Metrics
+This improved:
 
-* **Training Accuracy:** 99.71%
-* **Validation Accuracy:** 72.34%
-* **Overall Confusion Matrix Accuracy:** 94.59%
+- Data diversity  
+- Class balance  
+- Better robustness  
+- Stronger generalization  
 
+### Official Research Results (CVIP 2025)
+
+These are the official performance metrics reported in the accepted research paper:
+
+- **Training Accuracy:** 99.71%  
+- **Validation Accuracy:** 72.34%  
+
+---
+
+### Extended Kaggle Experiment (Post-Research)
+
+After integrating the Kaggle Hindi SER dataset, the model achieved:
+
+- **Overall Confusion Matrix Accuracy:** 94.59%  
 
 ### Kaggle Dataset Confusion Matrix
 
-The confusion matrix below shows the final classification performance after extending training with the larger Kaggle Hindi SER dataset.
-
-This experiment improved robustness, class balance, and generalization across all emotion categories.
+The confusion matrix below shows the final classification performance after training on the extended Kaggle dataset.
 
 ![Kaggle Confusion Matrix](screenshots/kaggle_confusion_matrix.png)
 
+---
+
 ### Class-wise F1 Scores
 
-* Anger → **83.1%**
-* Fear → **77.7%**
-* Sad → **73.2%**
-* Surprise → **71.3%**
-* Neutral → **68.0%**
-* Happy → **65.3%**
-* Disgust → **64.1%**
-* Sarcastic → **60.8%**
+- Anger → **83.1%**  
+- Fear → **77.7%**  
+- Sad → **73.2%**  
+- Surprise → **71.3%**  
+- Neutral → **68.0%**  
+- Happy → **65.3%**  
+- Disgust → **64.1%**  
+- Sarcastic → **60.8%**
+
 
 ---
 
@@ -314,17 +338,21 @@ Accepted at:
 
 **Conference on Computer Vision and Image Processing (CVIP 2025), IIT Ropar**
 
+This research focuses on improving transparency and trust in Speech Emotion Recognition systems using Explainable AI techniques.
+
 ### Key Contributions
 
-* Initiated custom Hindi speech dataset collection from NIT Calicut students
-* Designed the speech data collection pipeline
-* Identified dataset limitations and expanded with Kaggle data
-* Built a hybrid dataset for improved generalization
-* Developed CNN-GRU-Attention based SER pipeline
-* Implemented post-hoc explainability using LMAC
-* Evaluated model faithfulness using structural metrics
-* Improved transparency in low-resource Indic speech systems
-* Validated explanations using empirical and human analysis
+- Initiated the custom **BhavanaVani** Hindi emotional speech dataset collection at NIT Calicut  
+- Designed and structured the speech data collection pipeline  
+- Identified limitations in low-resource speech collection and expanded the dataset using Kaggle Hindi SER data  
+- Built a hybrid dataset for improved model robustness and generalization  
+- Developed a **CNN-GRU-Attention** based Speech Emotion Recognition pipeline  
+- Integrated **Local Model-Agnostic Classification (LMAC)** for post-hoc interpretability  
+- Evaluated explanation quality using structural and fidelity-based metrics  
+- Improved transparency in low-resource Indic language Speech Emotion Recognition  
+- Validated explanation quality using both empirical and human-based evaluation  
+
+This work bridges the gap between **high-performance Speech Emotion Recognition** and **interpretable AI systems**, making emotion-aware speech applications more trustworthy.
 
 ---
 
@@ -353,11 +381,13 @@ The work received positive peer-review feedback for:
 
 ## 👨‍💻 Author
 
-**Saurav Kumar Singh**
-B.Tech CSE | National Institute of Technology Calicut
-AI/ML Engineer | Speech AI | Deep Learning | Explainable AI
+**Saurav Kumar Singh**  
+B.Tech in Computer Science and Engineering  
+National Institute of Technology Calicut  
 
-GitHub: https://github.com/build-with-saurav
+AI/ML Engineer | Speech AI | Deep Learning | Explainable AI  
+
+🔗 GitHub: https://github.com/build-with-saurav
 
 ---
 
