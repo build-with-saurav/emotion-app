@@ -264,6 +264,15 @@ To improve robustness and scale, we extended training using a Kaggle Hindi SER d
 * **Validation Accuracy:** 72.34%
 * **Overall Confusion Matrix Accuracy:** 94.59%
 
+
+### Kaggle Dataset Confusion Matrix
+
+The confusion matrix below shows the final classification performance after extending training with the larger Kaggle Hindi SER dataset.
+
+This experiment improved robustness, class balance, and generalization across all emotion categories.
+
+![Kaggle Confusion Matrix](screenshots/kaggle_confusion_matrix.png)
+
 ### Class-wise F1 Scores
 
 * Anger → **83.1%**
