@@ -154,7 +154,7 @@ emotion-app/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/SauravB210489CS/emotion-app.git
+git clone https://github.com/build-with-saurav/emotion-app.git
 cd emotion-app
 ```
 
