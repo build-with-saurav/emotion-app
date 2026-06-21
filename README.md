@@ -338,8 +338,8 @@ Accepted at:
 
 **Conference on Computer Vision and Image Processing (CVIP 2025), IIT Ropar**
 
-📄 Research Paper: [View Paper](research-paper/your-paper-file.pdf)  
-📝 Reviewer Feedback: [View Reviews](reviews/your-review-file.pdf)
+📄 Research Paper: [View Paper](research-paper/SPASHTA_CVIP_2025.pdf)  
+📝 Reviewer Feedback: [View Reviews](reviews/CVIP_Review_Comments.pdf)
 
 This research focuses on improving transparency and trust in Speech Emotion Recognition systems using Explainable AI techniques.
 
